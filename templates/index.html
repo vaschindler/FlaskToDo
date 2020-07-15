@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+
+{% block content %}
+<h1> The Simple To Do App </h1>
+<p> Welcome to the Flask To Do App </p>
+{%for idx, item in template_todo.items()%}
+<p> <a href="{{url_for('todos', id=idx)}}">{{item}} </a></p>
+{%endfor%}
+
+<form action="/" method="POST">
+{{template_form.hidden_tag()}}
+{{template_form.todo.label}}
+{{template_form.todo()}}
+<p>{{template_form.descriptions.label}}
+{{template_form.descriptions()}}</p>
+<p> 
+  {{template_form.submit()}}</p>
+</form>
+{% endblock%}
